@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 12:57:40 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/02 22:41:10 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/06/04 19:11:42 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,8 @@ char	*ft_strdup(char *s);
 char	*ft_strchr(const char *s, int c);
 int		ft_strncmp(char *s1, char *s2, unsigned int n);
 int		parse_map(int ac, char **av);
+int		ft_strlen(char *str);
+char	*ft_strjoin(char *s1, char *s2);
+
 
 #endif
