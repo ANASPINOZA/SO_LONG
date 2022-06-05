@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:37:24 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/05 11:51:08 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/06/05 14:14:17 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,3 +75,5 @@ int main (int argc , char **argv)
 {
 	printf("%s",get_map (argc, argv));
 }
+
+// Adding some comment.
