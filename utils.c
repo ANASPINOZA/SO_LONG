@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:40:28 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/05 11:45:55 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/06/06 16:01:18 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int    ft_strncmp(char *s1, char *s2, unsigned int n)
     return (s1[i] - s2[i]);
 }
 
-int		ft_strlen(char *str)
+int		ft_strlen(const char *str)
 {
 	int i;
 
@@ -73,4 +73,9 @@ char	*ft_strjoin(char *s1, char *s2)
 	str[i] = '\0';
 	free(s1);
 	return (str);
+}
+
+void	ft_putstr(char *str)
+{
+	write(1, str, ft_strlen(str));
 }
