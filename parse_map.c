@@ -92,6 +92,23 @@ int main (int ac , char **av)
 			ft_error("righ and left ");
 		j++;
 	}
+	i = 1;
+	while (map[i])
+	{
+		if (ft_strchr(map[i], 'C') != NULL)
+		{
+		i++;
+		printf("there is a collectable\n");
+		}
+		else if (ft_strchr(map[i], 'C') == NULL)
+		{
+		i++;
+		if (map[i] == NULL)
+		ft_error("collectable ");
+		}
+	}
+	
+
 	return (0);
 }
 
