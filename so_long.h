@@ -22,12 +22,13 @@
 char	*get_next_line(int fd);
 char	*ft_strdup(char *s);
 char	*ft_strchr(const char *s, int c);
-int		ft_strncmp(char *s1, char *s2, unsigned int n);
+// int		ft_strncmp(char *s1, char *s2, unsigned int n);
 int		parse_map(int ac, char **av);
 int		ft_strlen(const char *str);
 char	*ft_strjoin(char *s1, char *s2);
 char	**ft_split(char const *s, char c);
 void	ft_putstr(char *str);
 void	ft_error(char *status);
+int     ft_strcmp(char *s1, char *s2);
 
 #endif

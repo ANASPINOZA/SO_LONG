@@ -27,11 +27,11 @@ int map_check(int ac, char **av)
 	if (ac != 2)
 		ft_error("argument ");
 	test = ft_strchr(av[1], '.');
-	if (!test || ft_strncmp(".ber", test, 4) != 0)
-		ft_error("map ");
+	if (!test || ft_strcmp(".ber", test) != 0)
+		ft_error("map 1");
 	fd = open(av[1], O_RDONLY);
 	if (fd < 0)
-		ft_error("map ");
+		ft_error("map 2");
 	return (fd);
 }
 
@@ -45,7 +45,7 @@ char *get_map (int ac, char **av)
 	fd = map_check (ac, av);
 	str = get_next_line(fd);
 	if (!str)
-		ft_error("map ");
+		ft_error("map 3");
 	tmp = malloc((ft_strlen(str) + 1) * sizeof(char));
 	if (!tmp)
 		ft_error("allocation ");
@@ -61,28 +61,38 @@ char *get_map (int ac, char **av)
 int main (int ac , char **av)
 {
 	int i;
+	int j;
 	int	map_len;
 	char *one;
 	char **map;
 
 	i = 0;
+	j = 0;
 	one = get_map(ac, av);
 	if (one[ft_strlen(one) - 1] == '\n')
-		ft_error("map ");
+		ft_error("map 4");
 	map = ft_split(one, '\n');
 	map_len = ft_strlen(map[i++]);
 	while (map[i])
 	{
 		if (map_len != ft_strlen(map[i]))
-			ft_error("map ");
-		else
-			if (map[0][i] == '1')
-				i++;
-			else
-				ft_error("map ");
+			ft_error("map not rectangle ");
 		i++;
 	}
-	printf("%d\n", i);
+	while (map[i - 1][j] && map[0][j])
+	{
+		if (map[i - 1][j] != '1' || map[0][j] != '1')
+			ft_error("up and down ");
+		j++;
+	}
+	j = 1;
+	while (map[j])
+	{
+		if (map[j][0] != '1' || map[j][map_len - 1] != '1')
+			ft_error("righ and left ");
+		j++;
+	}
+	return (0);
 }
 
 // Adding some comment.
