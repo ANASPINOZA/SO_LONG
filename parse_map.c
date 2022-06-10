@@ -12,6 +12,40 @@
 
 #include "so_long.h"
 
+void	check_map_items(char **map)
+{
+	int found;
+	int i;
+	
+	i = 1;
+	found = 0;
+	while (map[i])
+	{
+		found += (ft_strchr(map[i], 'C') != NULL);
+		i++;
+	}
+	if (!found)
+		ft_error("collectable ");
+	i = 1;
+	found = 0;
+	while (map[i])
+	{
+		found += (ft_strchr(map[i], 'E') != NULL);
+		i++;
+	}
+	if (!found)
+		ft_error("EXIT ");
+	i = 1;
+	found = 0;
+	while (map[i])
+	{
+		found += (ft_strchr(map[i], 'P') != NULL);
+		i++;
+	}
+	if (!found)
+		ft_error("PLAYER  ");	
+}
+
 void	ft_error(char *status)
 {
 	ft_putstr(status);
@@ -19,7 +53,7 @@ void	ft_error(char *status)
 	exit (0);
 }
 
-int map_check(int ac, char **av)
+int map_read_check(int ac, char **av)
 {
 	int fd;
 	char *test;
@@ -42,7 +76,7 @@ char *get_map (int ac, char **av)
 	char *str;
 	char *tmp;
 	
-	fd = map_check (ac, av);
+	fd = map_read_check (ac, av);
 	str = get_next_line(fd);
 	if (!str)
 		ft_error("map 3");
@@ -63,6 +97,7 @@ int main (int ac , char **av)
 	int i;
 	int j;
 	int	map_len;
+	// int	found;
 	char *one;
 	char **map;
 
@@ -92,23 +127,49 @@ int main (int ac , char **av)
 			ft_error("righ and left ");
 		j++;
 	}
-	i = 1;
-	while (map[i])
-	{
-		if (ft_strchr(map[i], 'C') != NULL)
-		{
-		i++;
-		printf("there is a collectable\n");
-		}
-		else if (ft_strchr(map[i], 'C') == NULL)
-		{
-		i++;
-		if (map[i] == NULL)
-		ft_error("collectable ");
-		}
-	}
+	i = 0;
+	check_map_items(&map[i]);
+	// i = 1;
+	// found = 0;
+	// while (map[i])
+	// {
+	// 	found += (ft_strchr(map[i], 'C') != NULL);
+	// 	i++;
+	// }
+	// if (!found)
+	// 	ft_error("collectable ");
+	// i = 1;
+	// found = 0;
+	// while (map[i])
+	// {
+	// 	found += (ft_strchr(map[i], 'E') != NULL);
+	// 	i++;
+	// }
+	// if (!found)
+	// 	ft_error("EXIT ");
+	// i = 1;
+	// found = 0;
+	// while (map[i])
+	// {
+	// 	found += (ft_strchr(map[i], 'P') != NULL);
+	// 	i++;
+	// }
+	// if (!found)
+	// 	ft_error("PLAYER  ");	
 	
-
+	// {
+	// 	if (ft_strchr(map[i], 'C') != NULL)
+	// 	{
+	// 	i++;
+	// 	printf("there is a collectable\n");
+	// 	}
+	// 	else if (ft_strchr(map[i], 'C') == NULL)
+	// 	{
+	// 	i++;
+	// 	if (map[i] == NULL)
+	// 	ft_error("collectable ");
+	// 	}
+	// }
 	return (0);
 }
 
