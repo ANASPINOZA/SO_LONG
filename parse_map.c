@@ -42,8 +42,8 @@ void	check_map_items(char **map)
 		found += (ft_strchr(map[i], 'P') != NULL);
 		i++;
 	}
-	if (!found)
-		ft_error("PLAYER  ");	
+	if (!found || found > 1)
+		ft_error("PLAYER  ");
 }
 
 void	ft_error(char *status)
@@ -126,6 +126,18 @@ int main (int ac , char **av)
 		if (map[j][0] != '1' || map[j][map_len - 1] != '1')
 			ft_error("righ and left ");
 		j++;
+	}
+	i = 1;
+	while (map[i])
+	{
+	j = 0;
+		while (map[i][j])
+		{
+			if (map[i][j] != 'C' && map[i][j] != 'P' && map[i][j] != 'E' && map[i][j] != '0' && map[i][j] != '1')
+				ft_error("items ");
+			j++;
+		}
+		i++;
 	}
 	i = 0;
 	check_map_items(&map[i]);
