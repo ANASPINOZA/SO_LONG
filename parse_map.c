@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:37:24 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/06 16:43:54 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/06/14 22:17:02 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,7 @@ void check_walls(int ac, char **av)
 	{
 		if (map[i - 1][j] != '1' || map[0][j] != '1')
 			ft_error("up and down ");
+	}
 	j = 0;
 	while (map[++j])
 	{
@@ -134,7 +135,7 @@ void check_walls(int ac, char **av)
 		}
 	}
 	check_map_items(&map[i = 0]);
-}
+	printf("[%d]\n", i);
 }
 // int main (int ac , char **av)
 // {
