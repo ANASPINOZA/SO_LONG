@@ -92,14 +92,13 @@ char *get_map (int ac, char **av)
 	return (tmp);
 }
 
-int main (int ac , char **av)
+void check_walls(int ac, char **av)
 {
-	int i;
-	int j;
-	int	map_len;
-	// int	found;
-	char *one;
-	char **map;
+	int		i;
+	int		j;
+	char	*one;
+	char	**map;
+	int		map_len;
 
 	i = 0;
 	j = 0;
@@ -114,33 +113,78 @@ int main (int ac , char **av)
 			ft_error("map not rectangle ");
 		i++;
 	}
-	while (map[i - 1][j] && map[0][j])
+	while (map[i - 1][j++] && map[0][j])
 	{
 		if (map[i - 1][j] != '1' || map[0][j] != '1')
 			ft_error("up and down ");
-		j++;
-	}
-	j = 1;
-	while (map[j])
+	j = 0;
+	while (map[++j])
 	{
 		if (map[j][0] != '1' || map[j][map_len - 1] != '1')
 			ft_error("righ and left ");
-		j++;
 	}
-	i = 1;
-	while (map[i])
+	i = 0;
+	while (map[++i])
 	{
-	j = 0;
-		while (map[i][j])
+	j = -1;
+		while (map[i][++j])
 		{
 			if (map[i][j] != 'C' && map[i][j] != 'P' && map[i][j] != 'E' && map[i][j] != '0' && map[i][j] != '1')
 				ft_error("items ");
-			j++;
 		}
-		i++;
 	}
-	i = 0;
-	check_map_items(&map[i]);
+	check_map_items(&map[i = 0]);
+}
+}
+// int main (int ac , char **av)
+// {
+// 	int i;
+// 	int j;
+// 	int	map_len;
+// 	// int	found;
+// 	char *one;
+// 	char **map;
+
+// 	i = 0;
+// 	j = 0;
+// 	one = get_map(ac, av);
+// 	if (one[ft_strlen(one) - 1] == '\n')
+// 		ft_error("map 4");
+// 	map = ft_split(one, '\n');
+// 	map_len = ft_strlen(map[i++]);
+// 	while (map[i])
+// 	{
+// 		if (map_len != ft_strlen(map[i]))
+// 			ft_error("map not rectangle ");
+// 		i++;
+// 	}
+// 	while (map[i - 1][j] && map[0][j])
+// 	{
+// 		if (map[i - 1][j] != '1' || map[0][j] != '1')
+// 			ft_error("up and down ");
+// 		j++;
+// 	}
+// 	j = 1;
+// 	while (map[j])
+// 	{
+// 		if (map[j][0] != '1' || map[j][map_len - 1] != '1')
+// 			ft_error("righ and left ");
+// 		j++;
+// 	}
+// 	i = 1;
+// 	while (map[i])
+// 	{
+// 	j = 0;
+// 		while (map[i][j])
+// 		{
+// 			if (map[i][j] != 'C' && map[i][j] != 'P' && map[i][j] != 'E' && map[i][j] != '0' && map[i][j] != '1')
+// 				ft_error("items ");
+// 			j++;
+// 		}
+// 		i++;
+// 	}
+// 	i = 0;
+// 	check_map_items(&map[i]);
 	// i = 1;
 	// found = 0;
 	// while (map[i])
@@ -182,7 +226,7 @@ int main (int ac , char **av)
 	// 	ft_error("collectable ");
 	// 	}
 	// }
-	return (0);
-}
+// 	return (0);
+// }
 
 // Adding some comment.
