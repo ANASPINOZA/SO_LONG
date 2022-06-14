@@ -19,6 +19,9 @@
 # include <fcntl.h>
 # include "mlx.h"
 
+# define WINDOW_WIDTH 1280
+# define WINDOW_HIGHT 640
+
 char	*get_next_line(int fd);
 char	*ft_strdup(char *s);
 char	*ft_strchr(const char *s, int c);
@@ -30,5 +33,6 @@ char	**ft_split(char const *s, char c);
 void	ft_putstr(char *str);
 void	ft_error(char *status);
 int     ft_strcmp(char *s1, char *s2);
+void draw_map (void *mlx_ptr, void *window_ptr, char *image_path);
 
 #endif

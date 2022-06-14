@@ -13,7 +13,7 @@
 CC = gcc
 FLAGS = -Wall -Werror -Wextra -Imlx
 MLX_FLAGS = -framework OpenGL -framework AppKit -lmlx
-SRCS = so_long.c get_next_line.c parse_map.c utils.c split.c
+SRCS = so_long.c get_next_line.c parse_map.c utils.c split.c test.c
 OBJS = $(SRCS:.c=.o)
 NAME = so_long
 HEADER = so_long.h
