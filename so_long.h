@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 12:57:40 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/06 16:01:53 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/06/15 14:15:20 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,9 @@ int     ft_strcmp(char *s1, char *s2);
 void    draw_map (void *mlx_ptr, void *window_ptr, char *image_path);
 void	check_map_items(char **map);
 int     map_read_check(int ac, char **av);
-void    check_walls(int ac, char **av);
+void    check_walls(int ac, char **av, void *mlx_ptr, void *window_ptr);
+char    **check_map(char **map, int i,int j, int map_len);
+int     ft_chr_count(const char *s, int c);
+
 
 #endif

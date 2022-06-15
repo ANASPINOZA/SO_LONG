@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:37:24 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/14 22:17:02 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/06/15 14:14:41 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,11 @@ void	check_map_items(char **map)
 	found = 0;
 	while (map[i])
 	{
-		found += (ft_strchr(map[i], 'P') != NULL);
+		found += ft_chr_count(map[i], 'P');
 		i++;
 	}
-	if (!found || found > 1)
+	printf("found : %d\n", found);
+	if (found != 1)
 		ft_error("PLAYER  ");
 }
 
@@ -92,13 +93,14 @@ char *get_map (int ac, char **av)
 	return (tmp);
 }
 
-void check_walls(int ac, char **av)
+void check_walls(int ac, char **av, void *mlx_ptr, void *window_ptr)
 {
 	int		i;
 	int		j;
 	char	*one;
 	char	**map;
 	int		map_len;
+	char	**holder;
 
 	i = 0;
 	j = 0;
@@ -113,29 +115,33 @@ void check_walls(int ac, char **av)
 			ft_error("map not rectangle ");
 		i++;
 	}
-	while (map[i - 1][j++] && map[0][j])
-	{
-		if (map[i - 1][j] != '1' || map[0][j] != '1')
-			ft_error("up and down ");
-	}
-	j = 0;
-	while (map[++j])
-	{
-		if (map[j][0] != '1' || map[j][map_len - 1] != '1')
-			ft_error("righ and left ");
-	}
-	i = 0;
-	while (map[++i])
-	{
-	j = -1;
-		while (map[i][++j])
-		{
-			if (map[i][j] != 'C' && map[i][j] != 'P' && map[i][j] != 'E' && map[i][j] != '0' && map[i][j] != '1')
-				ft_error("items ");
-		}
-	}
-	check_map_items(&map[i = 0]);
-	printf("[%d]\n", i);
+	// i -= 1;
+	
+	holder = check_map(&map[0] , i, j, map_len);
+	draw_map (mlx_ptr, window_ptr, "assets/wall.xpm", &map[0])
+	// draw_map (mlx_ptr, window_ptr, "assets/wall.xpm");
+	// while (map[i - 1][j++] && map[0][j])
+	// {
+	// 	if (map[i - 1][j] != '1' || map[0][j] != '1')
+	// 		ft_error("above or bottom ");
+	// }
+	// j = 0;
+	// while (map[++j])
+	// {
+	// 	if (map[j][0] != '1' || map[j][map_len - 1] != '1')
+	// 		ft_error("righ side or left side");
+	// }
+	// i = 0;
+	// while (map[++i])
+	// {
+	// j = -1;
+	// 	while (map[i][++j])
+	// 	{
+	// 		if (map[i][j] != 'C' && map[i][j] != 'P' && map[i][j] != 'E' && map[i][j] != '0' && map[i][j] != '1')
+	// 			ft_error("items ");
+	// 	}
+	// }
+	// check_map_items(&map[i = 0]);
 }
 // int main (int ac , char **av)
 // {

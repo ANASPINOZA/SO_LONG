@@ -13,21 +13,22 @@
 	// }
 
 
-	void draw_map (void *mlx_ptr, void *window_ptr, char *image_path)
+	void draw_map (void *mlx_ptr, void *window_ptr, char *image_path, char **map)
 	{
 		int xVar;
 		int yVar;
-		int img_size;
-		int window_width;
+		int img_size;	
+		// int window_width;
 		int i;
 		void *image_ptr;
 
 		xVar = 0;
 		yVar = 0;
+		(void)map;
 		i = 0;
 		img_size = 64;
-		window_width = 1280;
-		while (i < (window_width / img_size))
+
+		while (i < (WINDOW_WIDTH / img_size))
 		{
 			image_ptr = mlx_xpm_file_to_image(mlx_ptr, image_path, &img_size, &img_size);
 			mlx_put_image_to_window(mlx_ptr, window_ptr, image_ptr, xVar, yVar);
@@ -45,7 +46,7 @@
 			i++;
 		}
 		i = 0;
-		yVar = 64; 
+		yVar = 64;
 		xVar = 0;
 		while (i < (WINDOW_HIGHT / img_size))
 		{
