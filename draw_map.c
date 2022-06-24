@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 14:31:48 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/23 17:05:53 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/06/24 20:44:14 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,47 @@ void	ft_load_images(t_game *data)
 	t_images	*images;
 	int			wd[2];
 
-	images = data->images;
-	images->wall_img = mlx_xpm_file_to_image(data->mlx_ptr, "./assets/wall.xpm", &wd[0], &wd[1])
-	printf("wd 1 = %d, wd 2 = %d", wd[0], wd[1]);
-	images->flag_img = mlx_xpm_file_to_image(data->mlx_ptr, "./assets/flag.xpm", &wd[0], &wd[1])
-	images->coin_img = mlx_xpm_file_to_image(data->mlx_ptr, "./assets/new_coin.xpm", &wd[0], &wd[1])
-	images->ground_img = mlx_xpm_file_to_image(data->mlx_ptr, "./assets/background.xpm", &wd[0], &wd[1])
-	images->player_img = mlx_xpm_file_to_image(data->mlx_ptr, "./assets/MARIO2.xpm", &wd[0], &wd[1])
+	images = &data->images;
+	images->wall_img = mlx_xpm_file_to_image(data->mlx_ptr, "./assets/wall.xpm", &wd[0], &wd[1]);
+	printf("\n wd 1 = %d, wd 2 = %d \n", wd[0], wd[1]);
+	images->flag_img = mlx_xpm_file_to_image(data->mlx_ptr, "./assets/flag.xpm", &wd[0], &wd[1]);
+	images->coin_img = mlx_xpm_file_to_image(data->mlx_ptr, "./assets/coin.xpm", &wd[0], &wd[1]);
+	images->ground_img = mlx_xpm_file_to_image(data->mlx_ptr, "./assets/background.xpm", &wd[0], &wd[1]);
+	images->player_img = mlx_xpm_file_to_image(data->mlx_ptr, "./assets/player.xpm", &wd[0], &wd[1]);
 }
 
-static void	ft_put_image(t_game data, char c)
+static void	ft_put_image(t_game data, char c, int i, int j)
 {
+
 	if (c == '1')
-		mlx_put_image_to_window(data.mlx_ptr, data.window_ptr,
-		 data.images.wall_img, )
+		{
+			mlx_put_image_to_window(data.mlx_ptr, data.window_ptr,
+			data.images.wall_img, j*64, i*64);
+		}
+	else if (c == '0')
+		{
+			puts("here");
+			mlx_put_image_to_window(data.mlx_ptr, data.window_ptr,
+			data.images.ground_img, (j)*64, (i)*64);;
+		}
+	else if (c == 'P')
+		{
+			puts("here");
+			mlx_put_image_to_window(data.mlx_ptr, data.window_ptr,
+			data.images.player_img, (j)*64, (i)*64);
+		}
+	else if (c == 'C')
+		{
+			puts("here");
+			mlx_put_image_to_window(data.mlx_ptr, data.window_ptr,
+			data.images.coin_img, (j)*64, (i)*64);
+		}
+	else if (c == 'E')
+		{
+			puts("here");
+			mlx_put_image_to_window(data.mlx_ptr, data.window_ptr,
+			data.images.flag_img, (j)*64, (i)*64);
+		}
 }
 
 void	render(t_game data)
@@ -44,7 +71,8 @@ void	render(t_game data)
 		j = 0;
 		while (data.map[i][j])
 		{
-			ft_put_image(data, data.map[i][j]);
+			//printf("c = %c\n", data.map[i][j]);
+			ft_put_image(data, data.map[i][j], i, j);
 			j++;
 		}
 		i++;
