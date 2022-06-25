@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 18:41:42 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/23 15:31:28 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/06/24 21:04:43 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,3 @@ int	ft_chr_count(const char *s, int c)
 	}
     return (count);
 }
-
-// int main()
-// {
-//     char *s = "aaaaaaakaaakaaaak";
-//     char *d = "aaaaaaakaaakakkaaak";
-//     char *f = "aaaaaaaaaakaaaak";
-//     printf("%d", ft_chr_count(s, 'k'));
-//     printf("%d", ft_chr_count(d, 'k'));
-//     printf("%d", ft_chr_count(f, 'k'));
-// }

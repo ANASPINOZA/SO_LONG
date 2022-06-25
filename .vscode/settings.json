@@ -1,6 +1,12 @@
 {
     "files.associations": {
         "so_long.h": "c",
-        "mlx.h": "c"
+        "mlx.h": "c",
+        "__bit_reference": "c",
+        "__string": "c",
+        "algorithm": "c",
+        "ios": "c",
+        "string": "c",
+        "type_traits": "c"
     }
 }

@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 12:57:40 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/23 16:53:08 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/06/25 18:26:11 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ typedef struct s_images
 typedef struct s_game
 {
 	char				**map;
+	int					px;
+	int					py;
 	int					map_width;
 	int					map_height;
 	struct s_images		images;
@@ -44,7 +46,6 @@ typedef struct s_game
 char	*get_next_line(int fd);
 char	*ft_strdup(char *s);
 char	*ft_strchr(const char *s, int c);
-// int		ft_strncmp(char *s1, char *s2, unsigned int n);
 char	*get_map(int ac, char **av);
 int		ft_strlen(const char *str);
 char	*ft_strjoin(char *s1, char *s2);
@@ -59,7 +60,7 @@ char    **check_walls(t_game *data, int ac, char **av);
 void    check_map(char **map, int i,int j, int map_len);
 int     ft_chr_count(const char *s, int c);
 void	ft_load_images(t_game *data);
-void	render(t_game data);
+void	render(t_game *data);
 
 
 #endif
