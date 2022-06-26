@@ -6,13 +6,13 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 18:41:42 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/24 21:04:43 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/06/26 21:57:10 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	check_map(char **map, int i,int j, int map_len)
+void	check_walls(char **map, int i,int j, int map_len, t_game *data)
 {
     while (map[i - 1][j] && map[0][j])
 	{
@@ -37,7 +37,7 @@ void	check_map(char **map, int i,int j, int map_len)
 		}
 	}
     i = 0;
-	check_map_items(&map[i]);
+	check_map_items(&map[i], data);
 }
 
 int	ft_chr_count(const char *s, int c)

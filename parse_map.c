@@ -6,13 +6,13 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:37:24 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/25 18:22:21 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/06/26 21:58:55 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	check_map_items(char **map)
+void	check_map_items(char **map, t_game *data)
 {
 	int found;
 	int i;
@@ -26,6 +26,7 @@ void	check_map_items(char **map)
 	}
 	if (!found)
 		ft_error("collectable ");
+	data->coin_count = found;
 	i = 1;
 	found = 0;
 	while (map[i])
@@ -92,7 +93,7 @@ char *get_map (int ac, char **av)
 	return (tmp);
 }
 
-char **check_walls(t_game *data ,int ac, char **av)
+char **check_map(t_game *data ,int ac, char **av)
 {
 	int		i;
 	int		j;
@@ -115,7 +116,7 @@ char **check_walls(t_game *data ,int ac, char **av)
 		i++;
 	}
 	data->map_height = i;
-	check_map(map, i, j, map_len);
+	check_walls(map, i, j, map_len, data);
 	return (map);
 }
 // int main (int ac , char **av)

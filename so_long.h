@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 12:57:40 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/25 18:26:11 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/06/26 22:27:46 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_game
 	char				**map;
 	int					px;
 	int					py;
+	int					coin_count;
 	int					map_width;
 	int					map_height;
 	struct s_images		images;
@@ -54,13 +55,14 @@ void	ft_putstr(char *str);
 void	ft_error(char *status);
 int     ft_strcmp(char *s1, char *s2);
 void    draw_map (void *mlx_ptr, void *window_ptr, char *image_path, char **map);
-void	check_map_items(char **map);
+void	check_map_items(char **map, t_game *data);
 int     map_read_check(int ac, char **av);
-char    **check_walls(t_game *data, int ac, char **av);
-void    check_map(char **map, int i,int j, int map_len);
+char    **check_map(t_game *data, int ac, char **av);
+void    check_walls(char **map, int i,int j, int map_len, t_game *data);
 int     ft_chr_count(const char *s, int c);
 void	ft_load_images(t_game *data);
 void	render(t_game *data);
-
+void	ft_switch_img(t_game *data, int x, int y);
+void	game_check(t_game *data, int x, int y);
 
 #endif

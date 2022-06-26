@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 14:31:48 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/25 18:25:00 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/06/26 21:41:46 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,35 +26,35 @@ void	ft_load_images(t_game *data)
 	images->player_img = mlx_xpm_file_to_image(data->mlx_ptr, "./assets/player.xpm", &wd[0], &wd[1]);
 }
 
-static void	ft_put_image(t_game *data, char c, int i, int j)
+static void	ft_put_image(t_game *data, char c, int x, int y)
 {
 
 	if (c == '1')
 		{
 			mlx_put_image_to_window(data->mlx_ptr, data->window_ptr,
-			data->images.wall_img, j * 64, i * 64);
+			data->images.wall_img, x * 64, y * 64);
 		}
 	else if (c == '0')
 		{
 			mlx_put_image_to_window(data->mlx_ptr, data->window_ptr,
-			data->images.ground_img, j * 64, i * 64);;
+			data->images.ground_img, x * 64, y * 64);;
 		}
 	else if (c == 'P')
 		{
 			mlx_put_image_to_window(data->mlx_ptr, data->window_ptr,
-			data->images.player_img, j * 64, i * 64);
-			data->px = j;
-			data->py = i;
+			data->images.player_img, x * 64, y * 64);
+			data->px = x;
+			data->py = y;
 		}
 	else if (c == 'C')
 		{
 			mlx_put_image_to_window(data->mlx_ptr, data->window_ptr,
-			data->images.coin_img, j * 64, i * 64);
+			data->images.coin_img, x * 64, y * 64);
 		}
 	else if (c == 'E')
 		{
 			mlx_put_image_to_window(data->mlx_ptr, data->window_ptr,
-			data->images.flag_img, j * 64, i * 64);
+			data->images.flag_img, x * 64, y * 64);
 		}
 }
 
@@ -69,7 +69,7 @@ void	render(t_game *data)
 		j = 0;
 		while (data->map[i][j])
 		{
-			ft_put_image(data, data->map[i][j], i, j);
+			ft_put_image(data, data->map[i][j], j, i);
 			j++;
 		}
 		i++;
