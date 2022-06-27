@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 12:57:40 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/26 22:27:46 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/06/27 17:00:33 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_images
 typedef struct s_game
 {
 	char				**map;
+	char				**map_chk;
 	int					px;
 	int					py;
 	int					coin_count;

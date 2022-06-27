@@ -29,11 +29,18 @@ int	move(int keycode, t_game *data)
 void	ft_switch_img(t_game *data, int x, int y)
 {
 
-	if (data->map[data->py + y][data->px + x] != '1' && 
-	data->map[data->py + y][data->px + x] != 'E')
+	if (data->map_chk[data->py + y][data->px + x] != '1' && 
+	data->map_chk[data->py + y][data->px + x] != 'E')
 	{
 		game_check(data, x, y);
-		
+		data->map_chk[data->py][data->px] = '0';
+		data->map_chk[data->py + y][data->px + x] = 'P';
+		mlx_put_image_to_window(data->mlx_ptr, data->window_ptr, data->images.ground_img, 64 *
+		data->px, 64 * data->py);
+		mlx_put_image_to_window(data->mlx_ptr, data->window_ptr, data->images.player_img, 64 *
+		(data->px + x), 64 * (data->py + y));
+		data->px += x;
+		data->py += y;
 
 	}
 }

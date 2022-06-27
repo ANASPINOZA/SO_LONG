@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:37:24 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/26 21:58:55 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/06/27 17:04:38 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ char **check_map(t_game *data ,int ac, char **av)
 	int		i;
 	int		j;
 	char	*one;
-	char	**map;
+	// char	**map;
 	int		map_len;
 
 	i = 0;
@@ -106,18 +106,18 @@ char **check_map(t_game *data ,int ac, char **av)
 	one = get_map(ac, av);
 	if (one[ft_strlen(one) - 1] == '\n')
 		ft_error("map 4");
-	map = ft_split(one, '\n');
-	map_len = ft_strlen(map[i++]);
+	data->map_chk = ft_split(one, '\n');
+	map_len = ft_strlen(data->map_chk[i++]);
 	data->map_width = map_len;
-	while (map[i])
+	while (data->map_chk[i])
 	{
-		if (map_len != ft_strlen(map[i]))
+		if (map_len != ft_strlen(data->map_chk[i]))
 			ft_error("map not rectangle ");
 		i++;
 	}
 	data->map_height = i;
-	check_walls(map, i, j, map_len, data);
-	return (map);
+	check_walls(data->map_chk, i, j, map_len, data);
+	return (data->map_chk);
 }
 // int main (int ac , char **av)
 // {
