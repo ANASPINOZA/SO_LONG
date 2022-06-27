@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 14:31:48 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/27 21:56:35 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/06/27 22:18:36 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	ft_load_images(t_game *data)
 
 	images = &data->images;
 	images->wall_img = mlx_xpm_file_to_image(data->mlx_ptr, "./assets/wall.xpm", &wd[0], &wd[1]);
-	printf("\n wd 1 = %d, wd 2 = %d \n", wd[0], wd[1]);
 	images->flag_img = mlx_xpm_file_to_image(data->mlx_ptr, "./assets/flag.xpm", &wd[0], &wd[1]);
 	images->coin_img = mlx_xpm_file_to_image(data->mlx_ptr, "./assets/coin.xpm", &wd[0], &wd[1]);
 	images->coin_img2 = mlx_xpm_file_to_image(data->mlx_ptr, "./assets/coin2.xpm", &wd[0], &wd[1]);
@@ -30,7 +29,6 @@ void	ft_load_images(t_game *data)
 
 static void	ft_put_image(t_game *data, char c, int x, int y)
 {
-
 	if (c == '1')
 		{
 			mlx_put_image_to_window(data->mlx_ptr, data->window_ptr,

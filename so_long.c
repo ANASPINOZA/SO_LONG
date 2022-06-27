@@ -11,6 +11,7 @@ int	move(int keycode, t_game *data)
 
 	x = 0;
 	y = 0;
+	printf("esc : %d\n", keycode);
 	if (keycode == 13)
 		y = -1;
 	else if (keycode == 1)
@@ -19,6 +20,8 @@ int	move(int keycode, t_game *data)
 		x = -1;
 	else if (keycode == 2)
 		x = 1;
+	else if (keycode == 53)
+		exit(0);
 	else
 		return (0);
 	ft_switch_img(data, x, y);
@@ -33,9 +36,9 @@ void	ft_switch_img(t_game *data, int x, int y)
 	{
 		if (x == 1)
 			data->rorl = 1;
-		else
+		else if (x == -1)
 			data->rorl = 0;
-				
+
 		game_check(data, x, y);
 		data->map_chk[data->py][data->px] = '0';
 		data->map_chk[data->py + y][data->px + x] = 'P';
@@ -71,7 +74,6 @@ int animation(t_game *data)
 {
 	data->anim++;
 	render(data);
-	printf("[%d]\n", data->anim);
 	if (data->anim >= 50)
 		data->anim = 0;
 	return (0);
