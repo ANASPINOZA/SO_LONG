@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 12:57:40 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/27 21:51:45 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/06/28 17:43:49 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_images
 	void    *player_img;
 	void    *player_img2;
 	void    *flag_img;
+	void    *x_img;
 	void    *coin_img;
 	void    *coin_img2;
 }t_images;
@@ -35,8 +36,10 @@ typedef struct s_game
 {
 	char				**map;
 	char				**map_chk;
+	int					dead;
 	int					rorl;
 	int					anim;
+	int					move_count;
 	int					px;
 	int					py;
 	int					coin_count;
@@ -69,5 +72,10 @@ void	ft_load_images(t_game *data);
 void	render(t_game *data);
 void	ft_switch_img(t_game *data, int x, int y);
 void	game_check(t_game *data, int x, int y);
+void	ft_putnbr(int n);
+void    moves(int moves);
+void    ft_putchar(char c);
+int		destroy_notify(t_game *data);
+int		ft_atoi(const char *str);
 
 #endif

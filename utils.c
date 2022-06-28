@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:40:28 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/27 22:55:26 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/06/28 15:22:28 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,26 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-// int    ft_strncmp(char *s1, char *s2, unsigned int n)
-// {
-//     unsigned int    i;
+void	ft_putnbr(int n)
+{
+	long int	num;
 
-//     i = 0;
-//     if (n == 0)
-//     return (0);
-//         while ((s1[i] == s2[i] && s1[i] != '\0') && (i < n - 1))
-//             i++;
-//     return (s1[i] - s2[i]);
-// }
+	num = (long int)n;
+	if (num < 0)
+	{
+		ft_putchar('-');
+		num *= -1;
+	}
+	if (num >= 10)
+	{
+		ft_putnbr((num / 10));
+		ft_putnbr((num % 10));
+	}
+	if (num <= 9)
+	{
+		ft_putchar(num + '0');
+	}
+}
 
 int		ft_strlen(const char *str)
 {

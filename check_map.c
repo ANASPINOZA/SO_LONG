@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 18:41:42 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/26 21:57:10 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/06/28 17:22:04 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ void	check_walls(char **map, int i,int j, int map_len, t_game *data)
 	j = -1;
 		while (map[i][++j])
 		{
-			if (map[i][j] != 'C' && map[i][j] != 'P' && map[i][j] != 'E' && map[i][j] != '0' && map[i][j] != '1')
+			if (map[i][j] != 'C' && map[i][j] != 'P' && map[i][j] != 'E' && 
+			map[i][j] != '0' && map[i][j] != '1' && map[i][j] != 'X')
 				ft_error("items ");
 		}
 	}
