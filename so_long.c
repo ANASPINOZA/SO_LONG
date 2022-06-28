@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 13:10:01 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/28 18:19:56 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/06/28 23:10:30 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	game_check(t_game *data, int x, int y)
 	{
 		play_sound(2);
 		wait(NULL);
-		ft_putstr("GAME OVER\n");
+		ft_putstr("\nGAME OVER\n");
 		exit(1);
 	}
 	else if (data->map_chk[data->py + y][data->px + x] == 'E')

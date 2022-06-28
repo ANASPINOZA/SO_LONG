@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 14:31:48 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/28 21:57:10 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/06/28 23:48:43 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ static void	ft_put_image(t_game *data, char c, int x, int y)
 			else
 				mlx_put_image_to_window(data->mlx_ptr, data->window_ptr,
 				data->images.player_img2, x * 64, y * 64);
-				
 			data->px = x;
 			data->py = y;
 		}
@@ -73,8 +72,13 @@ void	render(t_game *data)
 	i = 0;
 	mlx_clear_window(data->mlx_ptr, data->window_ptr);
 	if (!data->dead)
-		mlx_string_put(data->mlx_ptr, data->window_ptr, (PIXEL * data->map_width) / 2.25,
-		PIXEL * (data->map_height + 0.30), 0x0000FF00, "MARIO REMAKE");
+		{
+			mlx_string_put(data->mlx_ptr, data->window_ptr, (PIXEL * data->map_width) / 2.50,
+			PIXEL * (data->map_height + 0.30), 0x0000FF00, "moves :");
+			mlx_string_put(data->mlx_ptr, data->window_ptr, (PIXEL * data->map_width) / 2.25,
+			PIXEL * (data->map_height + 0.30), 0x0000FF00, display_moves(data->move_count, data));
+			free(data->c);
+		}
 	else
 		mlx_string_put(data->mlx_ptr, data->window_ptr, (PIXEL * data->map_width) / 2.25,
 		PIXEL * (data->map_height + 0.30), 0x00FF0000,"GAME OVER");

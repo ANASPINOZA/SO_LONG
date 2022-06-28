@@ -6,14 +6,14 @@
 #    By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/30 21:21:53 by aadnane           #+#    #+#              #
-#    Updated: 2022/06/28 16:08:28 by aadnane          ###   ########.fr        #
+#    Updated: 2022/06/28 23:09:51 by aadnane          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 FLAGS = -Wall -Werror -Wextra -Imlx
 MLX_FLAGS = -framework OpenGL -framework AppKit -lmlx 
-SRCS = so_long.c get_next_line.c parse_map.c utils.c split.c draw_map.c check_map.c utils2.c
+SRCS = so_long.c get_next_line.c parse_map.c utils.c split.c draw_map.c check_map.c utils2.c utils3.c
 OBJS = $(SRCS:.c=.o)
 NAME = so_long
 HEADER = so_long.h

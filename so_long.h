@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 12:57:40 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/28 17:43:49 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/06/28 23:47:29 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_game
 {
 	char				**map;
 	char				**map_chk;
+	char				*c;
 	int					dead;
 	int					rorl;
 	int					anim;
@@ -66,7 +67,7 @@ void    draw_map (void *mlx_ptr, void *window_ptr, char *image_path, char **map)
 void	check_map_items(char **map, t_game *data);
 int     map_read_check(int ac, char **av);
 char    **check_map(t_game *data, int ac, char **av);
-void    check_walls(char **map, int i,int j, int map_len, t_game *data);
+void    check_walls(int i,int j, int map_len, t_game *data);
 int     ft_chr_count(const char *s, int c);
 void	ft_load_images(t_game *data);
 void	render(t_game *data);
@@ -76,6 +77,7 @@ void	ft_putnbr(int n);
 void    moves(int moves);
 void    ft_putchar(char c);
 int		destroy_notify(t_game *data);
-int		ft_atoi(const char *str);
+char	*ft_itoa(int n);
+char	*display_moves(int nb, t_game *data);
 
 #endif

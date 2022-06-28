@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:37:24 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/28 21:55:52 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/06/29 00:03:43 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ char *get_map (int ac, char **av)
 		free (str);
 		str = get_next_line(fd);
 	}
+	free(str);
 	return (tmp);
 }
 
@@ -115,6 +116,7 @@ char **check_map(t_game *data ,int ac, char **av)
 		i++;
 	}
 	data->map_height = i;
-	check_walls(data->map_chk, i, j, map_len, data);
+	check_walls(i, j, map_len, data);
+	free(one);
 	return (data->map_chk);
 }
