@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:37:24 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/27 20:42:07 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/06/28 21:55:52 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,6 @@ char **check_map(t_game *data ,int ac, char **av)
 	int		i;
 	int		j;
 	char	*one;
-	// char	**map;
 	int		map_len;
 
 	i = 0;
@@ -119,97 +118,3 @@ char **check_map(t_game *data ,int ac, char **av)
 	check_walls(data->map_chk, i, j, map_len, data);
 	return (data->map_chk);
 }
-// int main (int ac , char **av)
-// {
-// 	int i;
-// 	int j;
-// 	int	map_len;
-// 	// int	found;
-// 	char *one;
-// 	char **map;
-
-// 	i = 0;
-// 	j = 0;
-// 	one = get_map(ac, av);
-// 	if (one[ft_strlen(one) - 1] == '\n')
-// 		ft_error("map 4");
-// 	map = ft_split(one, '\n');
-// 	map_len = ft_strlen(map[i++]);
-// 	while (map[i])
-// 	{
-// 		if (map_len != ft_strlen(map[i]))
-// 			ft_error("map not rectangle ");
-// 		i++;
-// 	}
-// 	while (map[i - 1][j] && map[0][j])
-// 	{
-// 		if (map[i - 1][j] != '1' || map[0][j] != '1')
-// 			ft_error("up and down ");
-// 		j++;
-// 	}
-// 	j = 1;
-// 	while (map[j])
-// 	{
-// 		if (map[j][0] != '1' || map[j][map_len - 1] != '1')
-// 			ft_error("righ and left ");
-// 		j++;
-// 	}
-// 	i = 1;
-// 	while (map[i])
-// 	{
-// 	j = 0;
-// 		while (map[i][j])
-// 		{
-// 			if (map[i][j] != 'C' && map[i][j] != 'P' && map[i][j] != 'E' && map[i][j] != '0' && map[i][j] != '1')
-// 				ft_error("items ");
-// 			j++;
-// 		}
-// 		i++;
-// 	}
-// 	i = 0;
-// 	check_map_items(&map[i]);
-	// i = 1;
-	// found = 0;
-	// while (map[i])
-	// {
-	// 	found += (ft_strchr(map[i], 'C') != NULL);
-	// 	i++;
-	// }
-	// if (!found)
-	// 	ft_error("collectable ");
-	// i = 1;
-	// found = 0;
-	// while (map[i])
-	// {
-	// 	found += (ft_strchr(map[i], 'E') != NULL);
-	// 	i++;
-	// }
-	// if (!found)
-	// 	ft_error("EXIT ");
-	// i = 1;
-	// found = 0;
-	// while (map[i])
-	// {
-	// 	found += (ft_strchr(map[i], 'P') != NULL);
-	// 	i++;
-	// }
-	// if (!found)
-	// 	ft_error("PLAYER  ");	
-	
-	// {
-	// 	if (ft_strchr(map[i], 'C') != NULL)
-	// 	{
-	// 	i++;
-	// 	printf("there is a collectable\n");
-	// 	}
-	// 	else if (ft_strchr(map[i], 'C') == NULL)
-	// 	{
-	// 	i++;
-	// 	if (map[i] == NULL)
-	// 	ft_error("collectable ");
-	// 	}
-	// }
-// 	return (0);
-// }
-
-// Adding some comment.

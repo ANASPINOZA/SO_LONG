@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 14:31:48 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/28 17:42:31 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/06/28 21:57:10 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	render(t_game *data)
 	mlx_clear_window(data->mlx_ptr, data->window_ptr);
 	if (!data->dead)
 		mlx_string_put(data->mlx_ptr, data->window_ptr, (PIXEL * data->map_width) / 2.25,
-		PIXEL * (data->map_height + 0.30), 0x0000FF00, "credits : mazharia");
+		PIXEL * (data->map_height + 0.30), 0x0000FF00, "MARIO REMAKE");
 	else
 		mlx_string_put(data->mlx_ptr, data->window_ptr, (PIXEL * data->map_width) / 2.25,
 		PIXEL * (data->map_height + 0.30), 0x00FF0000,"GAME OVER");
