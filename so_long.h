@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 12:57:40 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/28 23:47:29 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/06/29 18:41:10 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ typedef struct s_images
 
 typedef struct s_game
 {
-	char				**map;
 	char				**map_chk;
 	char				*c;
 	int					dead;
@@ -52,7 +51,7 @@ typedef struct s_game
 	void				*image_ptr;
 }t_game;
 
-
+void	end_game(t_game *data);
 char	*get_next_line(int fd);
 char	*ft_strdup(char *s);
 char	*ft_strchr(const char *s, int c);
@@ -79,5 +78,7 @@ void    ft_putchar(char c);
 int		destroy_notify(t_game *data);
 char	*ft_itoa(int n);
 char	*display_moves(int nb, t_game *data);
+void	intial_vars(t_game *data);
+void	play_sound(int soundeffect);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 22:51:53 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/28 22:52:32 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/06/29 18:44:47 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,18 @@ char	*ft_itoa(int n)
 		nb = nb / 10;
 	}
 	return (str);
+}
+
+void	end_game(t_game *data)
+{
+	int	i;
+	i = 0;
+	if (data->map_chk)
+	{
+		while (data->map_chk[i])
+			free(data->map_chk[i++]);
+		free(data->map_chk);
+	}
+	mlx_destroy_window(data->mlx_ptr, data->window_ptr);
+	exit(0);
 }

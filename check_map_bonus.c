@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map.c                                        :+:      :+:    :+:   */
+/*   check_map_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/14 18:41:42 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/29 19:58:41 by aadnane          ###   ########.fr       */
+/*   Created: 2022/06/29 18:50:51 by aadnane           #+#    #+#             */
+/*   Updated: 2022/06/29 19:08:53 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	check_walls(int i,int j, int map_len, t_game *data)
 {
+
     while (data->map_chk[i - 1][j] && data->map_chk[0][j])
 	{
 		if (data->map_chk[i - 1][j] != '1' || data->map_chk[0][j] != '1')
@@ -33,7 +34,7 @@ void	check_walls(int i,int j, int map_len, t_game *data)
 		while (data->map_chk[i][++j])
 		{
 			if (data->map_chk[i][j] != 'C' && data->map_chk[i][j] != 'P' && data->map_chk[i][j] != 'E' && 
-			data->map_chk[i][j] != '0' && data->map_chk[i][j] != '1')
+			data->map_chk[i][j] != '0' && data->map_chk[i][j] != '1' && data->map_chk[i][j] != 'X')
 				ft_error("items ");
 		}
 	}

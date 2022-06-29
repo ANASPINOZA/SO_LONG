@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_map.c                                        :+:      :+:    :+:   */
+/*   parce_map_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/02 13:37:24 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/29 20:08:08 by aadnane          ###   ########.fr       */
+/*   Created: 2022/06/29 18:50:04 by aadnane           #+#    #+#             */
+/*   Updated: 2022/06/29 20:06:07 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,15 @@ void	check_map_items(char **map, t_game *data)
 	}
 	if (found != 1)
 		ft_error("PLAYER  ");
+    found = 0;
+    i = 1;
+    while (map[i])
+    {
+        found += (ft_strchr(map[i], 'X') != NULL);
+		i++;
+    }
+    if (!found)
+        ft_error("ENEMY ");
 }
 
 void	ft_error(char *status)
@@ -69,6 +78,7 @@ int map_read_check(int ac, char **av)
 		ft_error("map 2");
 	return (fd);
 }
+
 
 char *get_map (int ac, char **av)
 {
