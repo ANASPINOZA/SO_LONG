@@ -6,22 +6,22 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:15:56 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/29 20:15:59 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/06/30 00:29:11 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void    moves(int moves)
+void	moves(int moves)
 {
-    ft_putchar('\n');
-    ft_putstr("move :");
-    ft_putnbr(moves);
+	ft_putchar('\n');
+	ft_putstr("move :");
+	ft_putnbr(moves);
 }
 
-void    ft_putchar(char c)
+void	ft_putchar(char c)
 {
-    write(1, &c, 1);
+	write (1, &c, 1);
 }
 
 int	destroy_notify(t_game *data)
@@ -31,14 +31,13 @@ int	destroy_notify(t_game *data)
 	return (1);
 }
 
-// char	*display_moves(int nb, t_game *data)
-// {
-// 	data->c = ft_itoa(nb);
-// 	return (data->c);
-// }
-
 void	intial_vars(t_game *data)
 {
 	data->move_count = 0;
 	data->anim = 0;
+}
+
+void	ft_putstr(char *str)
+{
+	write(1, str, ft_strlen(str));
 }

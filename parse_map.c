@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:37:24 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/29 20:08:08 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/06/29 23:35:25 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,26 @@
 
 void	check_map_items(char **map, t_game *data)
 {
-	int found;
-	int i;
-	
+	int	found;
+	int	i;
+
 	i = 1;
 	found = 0;
 	while (map[i])
-	{
-		found += (ft_chr_count(map[i], 'C'));
-		i++;
-	}
+		found += (ft_chr_count(map[i++], 'C'));
 	if (!found)
 		ft_error("collectable ");
 	data->coin_count = found;
 	i = 1;
 	found = 0;
 	while (map[i])
-	{
-		found += (ft_strchr(map[i], 'E') != NULL);
-		i++;
-	}
+		found += (ft_strchr(map[i++], 'E') != NULL);
 	if (!found)
 		ft_error("EXIT ");
 	i = 1;
 	found = 0;
 	while (map[i])
-	{
-		found += ft_chr_count(map[i], 'P');
-		i++;
-	}
+		found += ft_chr_count(map[i++], 'P');
 	if (found != 1)
 		ft_error("PLAYER  ");
 }
@@ -54,11 +45,11 @@ void	ft_error(char *status)
 	exit (0);
 }
 
-int map_read_check(int ac, char **av)
+int	map_read_check(int ac, char **av)
 {
-	int fd;
-	char *test;
-	
+	int		fd;
+	char	*test;
+
 	if (ac != 2)
 		ft_error("argument ");
 	test = ft_strchr(av[1], '.');
@@ -70,12 +61,12 @@ int map_read_check(int ac, char **av)
 	return (fd);
 }
 
-char *get_map (int ac, char **av)
+char	*get_map(int ac, char **av)
 {
-	int fd;
-	char *str;
-	char *tmp;
-	
+	int		fd;
+	char	*str;
+	char	*tmp;
+
 	fd = map_read_check (ac, av);
 	str = get_next_line(fd);
 	if (!str)
@@ -93,7 +84,7 @@ char *get_map (int ac, char **av)
 	return (tmp);
 }
 
-char **check_map(t_game *data ,int ac, char **av)
+char	**check_map(t_game *data, int ac, char **av)
 {
 	int		i;
 	int		j;

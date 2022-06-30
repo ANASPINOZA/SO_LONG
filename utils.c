@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:40:28 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/28 15:22:28 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/06/30 00:28:58 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,24 +46,24 @@ void	ft_putnbr(int n)
 	}
 }
 
-int		ft_strlen(const char *str)
+int	ft_strlen(const char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
 		i++;
-	return(i);
+	return (i);
 }
 
 int	ft_strcmp(char *s1, char *s2)
 {
-	unsigned int i;
+	unsigned int	i;
 
 	i = 0;
 	while (s1[i] && s2[i] && s1[i] == s2[i])
 		i++;
-		return (s1[i] - s2[i]);
+	return (s1[i] - s2[i]);
 }
 
 char	*ft_strjoin(char *s1, char *s2)
@@ -92,9 +92,4 @@ char	*ft_strjoin(char *s1, char *s2)
 	str[i] = '\0';
 	free(s1);
 	return (str);
-}
-
-void	ft_putstr(char *str)
-{
-	write(1, str, ft_strlen(str));
 }

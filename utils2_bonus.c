@@ -6,22 +6,20 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 18:51:13 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/29 19:09:11 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/06/30 01:14:52 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void    moves(int moves)
+void	moves(int moves)
 {
-    ft_putchar('\n');
-    ft_putstr("move :");
-    ft_putnbr(moves);
+	ft_putnbr(moves);
 }
 
-void    ft_putchar(char c)
+void	ft_putchar(char c)
 {
-    write(1, &c, 1);
+	write (1, &c, 1);
 }
 
 int	destroy_notify(t_game *data)

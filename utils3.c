@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 22:51:53 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/29 18:44:47 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/06/30 00:43:20 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ char	*ft_itoa(int n)
 void	end_game(t_game *data)
 {
 	int	i;
+
 	i = 0;
 	if (data->map_chk)
 	{
