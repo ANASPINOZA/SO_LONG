@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 12:57:40 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/30 01:06:43 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/06/30 14:15:36 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ void			render(t_game *data);
 void			ft_switch_img(t_game *data, int x, int y);
 void			game_check(t_game *data, int x, int y);
 void			ft_putnbr(int n);
+int				moves_catcher(int moves);
 void			moves(int moves);
 void			ft_putchar(char c);
 int				destroy_notify(t_game *data);
@@ -82,5 +83,7 @@ char			*display_moves(int nb, t_game *data);
 void			intial_vars(t_game *data);
 void			play_sound(int soundeffect);
 int				animation(t_game *data);
+void			item_existence(t_game *data, int i, int j);
+void			item_error(char **map, int i, int found);
 
 #endif

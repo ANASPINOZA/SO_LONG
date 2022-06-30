@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parce_map_bonus.c                                  :+:      :+:    :+:   */
+/*   parse_map_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/29 18:50:04 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/29 20:06:07 by aadnane          ###   ########.fr       */
+/*   Created: 2022/06/30 14:17:16 by aadnane           #+#    #+#             */
+/*   Updated: 2022/06/30 14:17:24 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	check_map_items(char **map, t_game *data)
 {
-	int found;
-	int i;
-	
+	int	found;
+	int	i;
+
 	i = 1;
 	found = 0;
 	while (map[i])
@@ -36,24 +36,7 @@ void	check_map_items(char **map, t_game *data)
 	}
 	if (!found)
 		ft_error("EXIT ");
-	i = 1;
-	found = 0;
-	while (map[i])
-	{
-		found += ft_chr_count(map[i], 'P');
-		i++;
-	}
-	if (found != 1)
-		ft_error("PLAYER  ");
-    found = 0;
-    i = 1;
-    while (map[i])
-    {
-        found += (ft_strchr(map[i], 'X') != NULL);
-		i++;
-    }
-    if (!found)
-        ft_error("ENEMY ");
+	item_error(map, 1, 0);
 }
 
 void	ft_error(char *status)
@@ -63,11 +46,11 @@ void	ft_error(char *status)
 	exit (0);
 }
 
-int map_read_check(int ac, char **av)
+int	map_read_check(int ac, char **av)
 {
-	int fd;
-	char *test;
-	
+	int		fd;
+	char	*test;
+
 	if (ac != 2)
 		ft_error("argument ");
 	test = ft_strchr(av[1], '.');
@@ -79,13 +62,12 @@ int map_read_check(int ac, char **av)
 	return (fd);
 }
 
-
-char *get_map (int ac, char **av)
+char	*get_map(int ac, char **av)
 {
-	int fd;
-	char *str;
-	char *tmp;
-	
+	int		fd;
+	char	*str;
+	char	*tmp;
+
 	fd = map_read_check (ac, av);
 	str = get_next_line(fd);
 	if (!str)
@@ -103,7 +85,7 @@ char *get_map (int ac, char **av)
 	return (tmp);
 }
 
-char **check_map(t_game *data ,int ac, char **av)
+char	**check_map(t_game *data, int ac, char **av)
 {
 	int		i;
 	int		j;

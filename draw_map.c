@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 14:31:48 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/30 00:00:00 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/06/30 13:47:06 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_load_images(t_game *data)
 	"./assets/player2.xpm", &wd[0], &wd[1]);
 }
 
-static void	ft_put_image_help(t_game *data, char c, int x, int y)
+static void	ft_put_image_helper(t_game *data, char c, int x, int y)
 {
 	if (c == 'C')
 	{
@@ -69,7 +69,7 @@ static void	ft_put_image(t_game *data, char c, int x, int y)
 			data->py = y;
 	}
 	else
-		ft_put_image_help(data, c, x, y);
+		ft_put_image_helper(data, c, x, y);
 }
 
 void	render(t_game *data)

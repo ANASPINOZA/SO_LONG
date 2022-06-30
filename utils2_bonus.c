@@ -6,15 +6,20 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 18:51:13 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/30 01:14:52 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/06/30 14:07:14 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	moves(int moves)
+int	moves_catcher(int moves)
 {
-	ft_putnbr(moves);
+	int	i;
+
+	i = 0;
+	i++;
+	moves = i;
+	return (moves);
 }
 
 void	ft_putchar(char c)

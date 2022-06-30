@@ -1,4 +1,3 @@
-\
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -6,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/29 18:50:26 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/29 21:37:09 by aadnane          ###   ########.fr       */
+/*   Created: 2022/06/30 14:17:47 by aadnane           #+#    #+#             */
+/*   Updated: 2022/06/30 14:18:19 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +36,25 @@ void	ft_load_images(t_game *data)
 	"./assets_bonus/plant.xpm", &wd[0], &wd[1]);
 }
 
+static void	ft_put_image_helper(t_game *data, char c, int x, int y)
+{
+	if (c == 'C')
+	{
+		if (data->anim < 25)
+			mlx_put_image_to_window(data->mlx_ptr, data->window_ptr,
+				data->images.coin_img, x * 64, y * 64);
+		else
+			mlx_put_image_to_window(data->mlx_ptr, data->window_ptr,
+				data->images.coin_img2, x * 64, y * 64);
+	}
+	else if (c == 'E')
+		mlx_put_image_to_window(data->mlx_ptr, data->window_ptr,
+			data->images.flag_img, x * 64, y * 64);
+	else
+		mlx_put_image_to_window(data->mlx_ptr, data->window_ptr,
+			data->images.x_img, x * 64, y * 64);
+}
+
 static void	ft_put_image(t_game *data, char c, int x, int y)
 {
 	if (c == '1')
@@ -56,21 +74,8 @@ static void	ft_put_image(t_game *data, char c, int x, int y)
 			data->px = x;
 			data->py = y;
 	}
-	else if (c == 'C')
-	{
-		if (data->anim < 25)
-			mlx_put_image_to_window(data->mlx_ptr, data->window_ptr,
-				data->images.coin_img, x * 64, y * 64);
-		else
-			mlx_put_image_to_window(data->mlx_ptr, data->window_ptr,
-				data->images.coin_img2, x * 64, y * 64);
-	}
-	else if (c == 'E')
-		mlx_put_image_to_window(data->mlx_ptr, data->window_ptr,
-			data->images.flag_img, x * 64, y * 64);
 	else
-		mlx_put_image_to_window(data->mlx_ptr, data->window_ptr,
-			data->images.x_img, x * 64, y * 64);
+		ft_put_image_helper(data, c, x, y);
 }
 
 void	render(t_game *data)

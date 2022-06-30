@@ -6,7 +6,7 @@
 #    By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/30 21:21:53 by aadnane           #+#    #+#              #
-#    Updated: 2022/06/30 01:09:43 by aadnane          ###   ########.fr        #
+#    Updated: 2022/06/30 13:33:48 by aadnane          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ MLX_FLAGS = -framework OpenGL -framework AppKit -lmlx
 SRCS = so_long.c get_next_line.c parse_map.c utils.c split.c draw_map.c \
 check_map.c utils2.c utils3.c
 SRCSB = so_long_bonus.c get_next_line.c parse_map_bonus.c utils.c split.c \
-draw_map_bonus.c check_map_bonus.c utils2_bonus.c utils3.c
+draw_map_bonus.c check_map_bonus.c utils2_bonus.c utils3.c utils_bonus_helper.c
 OBJS = $(SRCS:.c=.o)
 OBJSB = $(SRCSB:.c=.o)
 NAME = so_long

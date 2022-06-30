@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 18:49:40 by aadnane           #+#    #+#             */
-/*   Updated: 2022/06/30 01:03:02 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/06/30 14:18:56 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ft_switch_img(t_game *data, int x, int y)
 		else if (x == -1)
 			data->rorl = 0;
 		game_check(data, x, y);
-		moves(++data->move_count);
+		moves_catcher(++data->move_count);
 		data->map_chk[data->py][data->px] = '0';
 		data->map_chk[data->py + y][data->px + x] = 'P';
 		data->px += x;
@@ -98,16 +98,7 @@ void	game_check(t_game *data, int x, int y)
 	}
 }
 
-int	animation(t_game *data)
-{
-	data->anim++;
-	render(data);
-	if (data->anim >= 50)
-		data->anim = 0;
-	return (0);
-}
-
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_game	data;
 
